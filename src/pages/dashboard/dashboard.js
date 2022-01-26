@@ -1,12 +1,6 @@
-import React, { Component, Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Button,
-    Card,
-    CardBody,
-    CardImg,
-    CardSubtitle,
-    CardText,
-    CardTitle,
     Col,
     Form,
     FormGroup,
@@ -72,7 +66,6 @@ function Dashboard({findMovies, isLoading, movies}) {
             setMeta({ ...meta, search: '' })
         }
     }
-    console.log("movie", meta)
     return (
         <>
             <Col >
