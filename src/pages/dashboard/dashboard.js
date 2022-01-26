@@ -21,22 +21,16 @@ function Dashboard({findMovies, isLoading, movies}) {
     const [movie, setMovie] = useState(null)
 
     useEffect(() => {
-       loadData();
+        if (movie == null){
+            setMovie(movies.data?.Search)
+        }
     }, [movies])
 
     useEffect(() => {
         if(meta.search !== ''){
             findMovies(meta)
         }
-    },[findMovies, meta])
-
-    const loadData = () => {
-        if (movie == null){
-            setMovie(movies.data?.Search)
-        } else {
-            setMovie(movies.data?.Search)
-        }
-    }
+    },[findMovies])
 
     const handleChange = (event) => {
         let name = event.target.name;
@@ -60,7 +54,7 @@ function Dashboard({findMovies, isLoading, movies}) {
     }
 
     const handleKeyPress = (event) => {
-        if (event.key == 'Enter') {
+        if (event.key === 'Enter') {
             event.preventDefault()
             findMovies(meta)
             setMeta({ ...meta, search: '' })

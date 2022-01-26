@@ -1,9 +1,8 @@
 import {useParams} from "react-router-dom";
 import {Fragment, useEffect, useState} from "react";
-import {findDetail, findMovies} from "../../action/movie";
-import {getDetail} from "../../reducers/movie";
+import {findDetail} from "../../action/movie";
 import {connect} from "react-redux";
-import {Col, Label, Row} from "reactstrap";
+import {Col, Row} from "reactstrap";
 
 function Detail({isLoading, movies, findDetail}) {
     const {id} = useParams()
@@ -24,7 +23,7 @@ function Detail({isLoading, movies, findDetail}) {
         <Col class="pt-5 bg-primary">
         <Row >
             <Col class="justify-content-center col-5">
-                <img src={data?.Poster}/>
+                <img src={data?.Poster} alt="images"/>
             </Col>
             <Col class="col-10">
                 <Col >
