@@ -26,11 +26,11 @@ function Dashboard({findMovies, isLoading, movies}) {
         }
     }, [movies])
 
-    useEffect(() => {
-        if(meta.search !== ''){
-            findMovies(meta)
-        }
-    },[findMovies])
+    // useEffect(() => {
+    //     if(meta.search !== ''){
+    //         findMovies(meta)
+    //     }
+    // },[findMovies])
 
     const handleChange = (event) => {
         let name = event.target.name;
@@ -39,19 +39,22 @@ function Dashboard({findMovies, isLoading, movies}) {
 
     }
 
-    const handlePlus=()=> {
-        setMeta({...meta,
-            page: meta.page + 1
-        })
-    }
-
-    const handleMinus=()=> {
-        if (meta.page > 0){
-            setMeta({...meta,
-                page: meta.page - 1
-            })
-        }
-    }
+    // const handlePlus=(e)=> {
+    //     e.preventDefault();
+    //     const {page} = {...meta}
+    //     setMeta({
+    //         page: page + 1
+    //     })
+    // }
+    //
+    // const handleMinus=(e)=> {
+    //     e.preventDefault()
+    //     if (meta.page > 0){
+    //         setMeta({...meta,
+    //             page: meta.page - 1
+    //         })
+    //     }
+    // }
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
@@ -81,26 +84,22 @@ function Dashboard({findMovies, isLoading, movies}) {
                         {
                             movie?.map((ml, index) => {
                                 return (
-                                    <div className='image-container d-flex justify-content-start m-6 col-4 mb-4' key={index}>
-                                        <Link to={`/movies/${ml?.imdbID}`}>
-                                        <img src={ml?.Poster} alt='movie'></img>
-                                        </Link>
-                                    </div>
+                                        <div className='image-container d-flex justify-content-start m-6 col-4 mb-4 col-md-4' key={index}>
+                                            <Link to={`/movies/${ml?.imdbID}`}>
+                                                <img src={ml?.Poster} alt='movie'></img>
+                                            </Link>
+                                        </div>
                                 )
                             })
                         }
                 </Row>
-                <Row>
-                    <Col class="col-1">
-                    <Button type="button" color="primary" className="float-left col-1" onClick={handlePlus}>+</Button>
-                    </Col>
-                    <Col class="col-1">
-                        <small className="col-1">{meta.page}</small>
-                    </Col>
-                    <Col class="col-1">
-                        <Button type="button" color="primary" className="float-right col-1" onClick={handleMinus}>-</Button>
-                    </Col>
-                </Row>
+                {/*{*/}
+                {/*    movie != null ?*/}
+                {/*    <div >*/}
+                {/*        <a  class="previous"  onClick={handleMinus}>&laquo; Previous</a>*/}
+                {/*        <a  class="next" onClick={handlePlus}>Next &raquo;</a>*/}
+                {/*    </div> : <Col></Col>*/}
+                {/*}*/}
             </Col>
         </>
     )

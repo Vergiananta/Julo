@@ -20,7 +20,7 @@ function Detail({isLoading, movies, findDetail}) {
     },[movies])
     return (
         <Fragment>
-        <Col class="pt-5 bg-primary">
+        <Col class="pt-5 m-4">
         <Row >
             <Col class="justify-content-center col-5">
                 <img src={data?.Poster} alt="images"/>
